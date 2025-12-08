@@ -8,7 +8,7 @@ public class PlatziPlayApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PlatziPlayApplication.class, args);
-		//System.out.println("Hola Mundo Spring Boot");
+		System.out.println("Hola Mundo Spring Boot");
 	}
 
 }
