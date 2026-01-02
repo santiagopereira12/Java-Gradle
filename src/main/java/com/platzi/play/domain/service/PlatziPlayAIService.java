@@ -1,5 +1,6 @@
 package com.platzi.play.domain.service;
 
+import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.V;
 import dev.langchain4j.service.spring.AiService;
@@ -11,4 +12,11 @@ public interface PlatziPlayAIService {
             Usa menos de 120 caracteres y hazlo con el estilo de platzi
             """)
     String generateGreeting(@V("plataform") String plataform);
+
+    @SystemMessage("""
+            Eres un experto en cine que recomienda peliculas personalizadas segun los gustos del usuario.
+            Debes recomendar maximo 3 peliculas.
+            No incluyas peliculasque esten por fuera de la plataforma PlatziPlay.
+            """)
+    String generateMoviesSuggestion(@UserMessage String userMessage);
 }
