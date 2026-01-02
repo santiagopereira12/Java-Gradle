@@ -8,7 +8,6 @@ import com.platzi.play.persistence.entity.MovieEntity;
 import com.platzi.play.persistence.mapper.MovieMapper;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
@@ -47,5 +46,10 @@ public class MovieEntityRepository implements MovieRepository {
 
         this.movieMapper.updateEntityFromDto(updateMovieDto, movieEntity);
         return this.movieMapper.toDto(this.crudMovieEntity.save(movieEntity));
+    }
+
+    @Override
+    public void delete(long id){
+        this.crudMovieEntity.deleteById(id);
     }
 }
